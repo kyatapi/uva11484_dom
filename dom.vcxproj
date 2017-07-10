@@ -123,6 +123,7 @@
     <ClCompile Include="test_cases.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dom.h" />
     <ClInclude Include="test_cases.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
