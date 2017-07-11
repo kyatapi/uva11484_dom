@@ -37,3 +37,14 @@ TEST(ReadTree, HandleOnlyRoot) {
     ASSERT_NE(tree.root(), nullptr);
     ASSERT_EQ(tree.root()->value(), "root");
 }
+
+TEST(ReadTree, HandleChildren) {
+    istringstream iss("<node value='level0'>\n<node value='level1'>\n<node value='level2'>\n</node>\n</node>\n</node>");
+    DomTree tree;
+    iss >> tree;
+
+    ASSERT_NE(tree.root(), nullptr);
+    ASSERT_EQ(tree.root()->value(), "level0");
+    ASSERT_EQ(tree.root()->first_child()->value(), "level1");
+    ASSERT_EQ(tree.root()->first_child()->first_child()->value(), "level2");
+}
